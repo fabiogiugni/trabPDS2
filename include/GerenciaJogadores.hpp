@@ -25,7 +25,7 @@ public:
 
     void printarJogadores() const {}
 
-    void salvarDados() const {}
+    void salvarDados(const std::string& arquivo) const {}
 
     void carregarDados() {}
 };

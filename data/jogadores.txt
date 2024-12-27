@@ -1,0 +1,1 @@
+<nome>;<apelido>;<vitórias_reversi>;<derrotas_reversi>;<vitórias_lig4>;<derrotas_lig4>;<vitórias_velha>;<derrotas_velha>
