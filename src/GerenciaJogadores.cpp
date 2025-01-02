@@ -2,10 +2,16 @@
 
 GerenciaJogadores::GerenciaJogadores(const std::string& arquivo = "jogadores.txt"): arquivoDados(arquivo) { carregarDados(); }
 
-GerenciaJogadores::~GerenciaJogadores() { salvarDados(); } // Salvar ao sair do programa 
+GerenciaJogadores::~GerenciaJogadores() { salvarDados(arquivoDados); } // Salvar ao sair do programa 
 
 void GerenciaJogadores::cadastrarJogador(const std::string& nome, const std::string& apelido) {
-    
+     auto jogador = std::make_unique<Jogador>(nome, apelido);
+     auto it = jogadores.find(apelido);
+     if(it != jogadores.end()){
+        std::cout<<"Erro: Apelido já cadastrado!"<<std::endl;
+        return;
+     }
+     jogadores[apelido] = std::move(jogador);
 }
 
 void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
@@ -42,6 +48,8 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
             std::string nome, apelido;
             int vitoriasReversi, derrotasReversi, vitoriasLig4, derrotasLig4, vitoriasVelha, derrotasVelha;
 
+            //leitura de dados
+
             std::getline(iss, nome, ';');
             std::getline(iss, apelido, ';');
             iss >> vitoriasReversi;
@@ -56,6 +64,8 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
             iss.ignore(1, ';');
             iss >> derrotasVelha;
 
+            //seta vitorias e derrotas
+
             auto jogador = std::make_unique<Jogador>(nome, apelido);
             for (int i = 0; i < vitoriasReversi; ++i) jogador->incrementarVitoriaReversi();
             for (int i = 0; i < derrotasReversi; ++i) jogador->incrementarDerrotaReversi();
@@ -64,9 +74,15 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
             for (int i = 0; i < vitoriasVelha; ++i) jogador->incrementarVitoriaVelha();
             for (int i = 0; i < derrotasVelha; ++i) jogador->incrementarDerrotaVelha();
 
-            jogadores[apelido] = std::move(jogador);
+            jogadores[apelido] = std::move(jogador); //adiciona jogador ao mapa
         }
 
         arquivo.close();
         std::cout << "Dados carregados com sucesso." << std::endl;
+    }
+
+    void GerenciaJogadores::printarJogadores() const {
+        for(const auto& [apelido, jogador] : jogadores){
+            jogador->printaJogador();
+        }
     }
