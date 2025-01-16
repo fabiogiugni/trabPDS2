@@ -1,17 +1,17 @@
 #include "GerenciaJogadores.hpp"
 
-GerenciaJogadores::GerenciaJogadores(const std::string& arquivo = "jogadores.txt"): arquivoDados(arquivo) { carregarDados(); }
+GerenciaJogadores::GerenciaJogadores(const std::string& arquivo = "jogadores.txt") : arquivoDados(arquivo) { carregarDados(); }
 
-GerenciaJogadores::~GerenciaJogadores() { salvarDados(arquivoDados); } // Salvar ao sair do programa 
+GerenciaJogadores::~GerenciaJogadores() { salvarDados(arquivoDados); } // Salvar ao sair do programa
 
 void GerenciaJogadores::cadastrarJogador(const std::string& nome, const std::string& apelido) {
-     auto jogador = std::make_unique<Jogador>(nome, apelido);
-     auto it = jogadores.find(apelido);
-     if(it != jogadores.end()){
-        std::cout<<"Erro: Apelido já cadastrado!"<<std::endl;
+    auto jogador = std::make_unique<Jogador>(nome, apelido);
+    auto it = jogadores.find(apelido);
+    if (it != jogadores.end()) {
+        std::cout << "Erro: Apelido já cadastrado!" << std::endl;
         return;
-     }
-     jogadores[apelido] = std::move(jogador);
+    }
+    jogadores[apelido] = std::move(jogador);
 }
 
 void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
@@ -22,7 +22,7 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
     }
 
     for (const auto& [apelido, jogador] : jogadores) {
-        out << jogador->getNome() << ";" 
+        out << jogador->getNome() << ";"
             << jogador->getApelido() << ";"
             << jogador->getVitoriasReversi() << ";"
             << jogador->getDerrotasReversi() << ";"
@@ -66,7 +66,7 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
 
             //seta vitorias e derrotas
 
-            auto jogador = std::make_unique<Jogador>(nome, apelido);
+            auto jogador = std::make_shared<Jogador>(nome, apelido);
             for (int i = 0; i < vitoriasReversi; ++i) jogador->incrementarVitoriaReversi();
             for (int i = 0; i < derrotasReversi; ++i) jogador->incrementarDerrotaReversi();
             for (int i = 0; i < vitoriasLig4; ++i) jogador->incrementarVitoriaLig4();
@@ -85,4 +85,13 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
         for(const auto& [apelido, jogador] : jogadores){
             jogador->printaJogador();
         }
+    }
+
+    void GerenciaJogadores::removerJogador(const std::string& apelido) {
+        auto it = jogadores.find(apelido);
+        if(it == jogadores.end()){
+            std::cout<<"Erro: Apelido não cadastrado!"<<std::endl;
+            return;
+        }
+        jogadores.erase(it);
     }
