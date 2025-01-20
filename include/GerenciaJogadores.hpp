@@ -11,7 +11,7 @@
 // Classe para gerenciar os jogadores
 class GerenciaJogadores {
 private:
-    std::map<std::string, std::unique_ptr<Jogador>> jogadores; // Mapa de jogadores (apelido como chave, ele é unico para cada jogador)
+    std::map<std::string, std::shared_ptr<Jogador>> jogadores; // Mapa de jogadores (apelido como chave, ele é unico para cada jogador)
     std::string arquivoDados;
 
 public:
