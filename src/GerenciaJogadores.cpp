@@ -1,6 +1,6 @@
 #include "GerenciaJogadores.hpp"
 
-GerenciaJogadores::GerenciaJogadores(const std::string& arquivo = "jogadores.txt") : arquivoDados(arquivo) { carregarDados(); }
+GerenciaJogadores::GerenciaJogadores(const std::string& arquivo) : arquivoDados(arquivo) { carregarDados(); }
 
 GerenciaJogadores::~GerenciaJogadores() { salvarDados(arquivoDados); } // Salvar ao sair do programa
 

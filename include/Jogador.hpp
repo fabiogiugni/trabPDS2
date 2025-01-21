@@ -18,26 +18,26 @@ private:
 
 public:
     Jogador(); //Construtor padrão
-    Jogador(const std::string& nome, const std::string& apelido){} //Construtor mais completo
+    Jogador(const std::string& nome, const std::string& apelido); //Construtor mais completo
     ~Jogador();
     //Getters
-    std::string getApelido() const {}
-    std::string getNome() const {}
-    int getVitoriasReversi() const {}
-    int getVitoriasLig4() const {}
-    int getVitoriasVelha() const {}
-    int getDerrotasReversi() const {}
-    int getDerrotasLig4() const {}
-    int getDerrotasVelha() const {}
+    std::string getApelido() const { return apelido; }
+    std::string getNome() const { return nome; }
+    int getVitoriasReversi() const { return vitoriasReversi; }
+    int getVitoriasLig4() const { return vitoriasLig4; }
+    int getVitoriasVelha() const { return vitoriasVelha; }
+    int getDerrotasReversi() const { return derrotasReversi; }
+    int getDerrotasLig4() const { return derrotasLig4; }
+    int getDerrotasVelha() const { return derrotasVelha; }
     //Printar Jogador
-    void printaJogador() const {}
+    void printaJogador() const;
     //Setters (no caso somente incrementam)
-    void incrementarVitoriaReversi() {}
-    void incrementarVitoriaLig4() {}
-    void incrementarVitoriaVelha() {}
-    void incrementarDerrotaReversi() {}
-    void incrementarDerrotaLig4() {}
-    void incrementarDerrotaVelha() {}
+    void incrementarVitoriaReversi();
+    void incrementarVitoriaLig4();
+    void incrementarVitoriaVelha();
+    void incrementarDerrotaReversi();
+    void incrementarDerrotaLig4();
+    void incrementarDerrotaVelha();
 };
 
 #endif

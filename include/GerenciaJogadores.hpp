@@ -15,19 +15,19 @@ private:
     std::string arquivoDados;
 
 public:
-    GerenciaJogadores(const std::string& arquivo = "jogadores.txt"){}
+    GerenciaJogadores(const std::string& arquivo = "jogadores.txt");
 
-    ~GerenciaJogadores() {}
+    ~GerenciaJogadores();
 
-    void cadastrarJogador(const std::string& nome, const std::string& apelido) {}
+    void cadastrarJogador(const std::string& nome, const std::string& apelido);
 
-    void removerJogador(const std::string& apelido) {}
+    void removerJogador(const std::string& apelido);
 
-    void printarJogadores() const {}
+    void printarJogadores() const;
 
-    void salvarDados(const std::string& arquivo) const {}
+    void salvarDados(const std::string& arquivo) const;
 
-    void carregarDados() {}
+    void carregarDados();
 };
 
 #endif
