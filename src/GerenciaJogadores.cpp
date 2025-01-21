@@ -21,15 +21,15 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
         return;
     }
 
-    for (const auto& [apelido, jogador] : jogadores) {
-        out << jogador->getNome() << ";"
-            << jogador->getApelido() << ";"
-            << jogador->getVitoriasReversi() << ";"
-            << jogador->getDerrotasReversi() << ";"
-            << jogador->getVitoriasLig4() << ";"
-            << jogador->getDerrotasLig4() << ";"
-            << jogador->getVitoriasVelha() << ";"
-            << jogador->getDerrotasVelha() << "\n";
+    for (const auto& jogadorPair : jogadores) {
+        out << jogadorPair.second->getNome() << ";"
+            << jogadorPair.second->getApelido() << ";"
+            << jogadorPair.second->getVitoriasReversi() << ";"
+            << jogadorPair.second->getDerrotasReversi() << ";"
+            << jogadorPair.second->getVitoriasLig4() << ";"
+            << jogadorPair.second->getDerrotasLig4() << ";"
+            << jogadorPair.second->getVitoriasVelha() << ";"
+            << jogadorPair.second->getDerrotasVelha() << "\n";
     }
     out.close();
     std::cout << "Dados salvos em .txt" << std::endl;
@@ -82,8 +82,8 @@ void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
     }
 
     void GerenciaJogadores::printarJogadores() const {
-        for(const auto& [apelido, jogador] : jogadores){
-            jogador->printaJogador();
+        for(const auto& jogadorPair : jogadores){
+            jogadorPair.second->printaJogador();
         }
     }
 

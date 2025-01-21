@@ -21,3 +21,4 @@ private:
     // Método para verificar se há peças para virar em uma direção
     bool verificaDirecao(int x, int y, int dx, int dy, char pecaAtual);
 };
+#endif

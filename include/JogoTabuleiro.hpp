@@ -7,13 +7,15 @@
 #include <memory>
 
 class JogoTabuleiro {
-private:
+protected:
     std::shared_ptr<Jogador> jogador1, jogador2;
     std::vector<std::vector<char>> tabuleiro;
     int dimensaoTabuleiro;
+    bool jogadorAtual;
 
 public:
-    JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n); // Construtor mais completo
+    JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n); // construtor mais completo
+
     ~JogoTabuleiro(){};
 
     // Leitura Jogada
@@ -26,7 +28,7 @@ public:
     virtual void printaTabuleiro() const;
 
     // Testa Condição de Vitória
-    virtual bool isVitoria();
+    virtual bool isVitoria() = 0;
 };
 
 #endif
