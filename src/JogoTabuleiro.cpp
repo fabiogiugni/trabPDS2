@@ -1,19 +1,25 @@
 #include "JogoTabuleiro.hpp"
 
 JogoTabuleiro::JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n) :
-    jogador1(jogador1), jogador2(jogador2), dimensaoTabuleiro(n), tabuleiro(n, std::vector<char>(n, '-')) {}
+    jogador1(jogador1), jogador2(jogador2), dimensaoTabuleiro(n), tabuleiro(n, std::vector<char>(n, '-')), jogadorAtual(true) {}
 
 bool JogoTabuleiro::isJogadaValida(char linha, int coluna) {
-    if(tabuleiro[linha - 65][coluna - 1] == '-') {
+    if (linha >= 'A' && linha < 'A' + dimensaoTabuleiro &&
+        coluna >= 1 && coluna <= dimensaoTabuleiro &&
+        tabuleiro[linha - 'A'][coluna - 1] == '-') {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 void JogoTabuleiro::leJogada(char linha, int coluna) {
-    if(isJogadaValida(linha, coluna)) {
-        tabuleiro[linha - 65][coluna - 1] = 'X ou O'; // como fazer pra definir qual jogador tá jogando??
+    if (isJogadaValida(linha, coluna)) {
+        // Definir o símbolo do jogador atual
+        char simbolo = jogadorAtual ? 'X' : 'O';
+        tabuleiro[linha - 'A'][coluna - 1] = simbolo;
+
+        // Alternar o jogador
+        jogadorAtual = !jogadorAtual;
     } else {
         std::cout << "ERRO: Jogada Inválida" << std::endl;
     }
