@@ -5,10 +5,10 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <stdexcept>
+#include <stdexcept> // Para exceções
 
 class JogoTabuleiro {
-protected:
+private:
     std::shared_ptr<Jogador> jogador1, jogador2;
     std::vector<std::vector<char>> tabuleiro;
     int dimensaoTabuleiro;
@@ -16,7 +16,7 @@ protected:
 
 public:
     JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n); // Construtor
-    ~JogoTabuleiro() = default;
+    virtual ~JogoTabuleiro() = default;
 
     // Leitura Jogada
     virtual void leJogada(char linha, int coluna);
@@ -29,6 +29,9 @@ public:
 
     // Testa Condição de Vitória
     virtual bool isVitoria();
+
+    // Testa Condição de Empate
+    virtual bool isEmpate(); // Agora não é mais virtual pura.
 
     // Exceções Específicas
     class JogadaInvalidaException : public std::runtime_error {
