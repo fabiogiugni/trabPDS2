@@ -25,3 +25,7 @@ void Jogador::printaJogador() const {
     std::cout << "LIG4    - V: " << vitoriasLig4   << " D: " << derrotasLig4    << std::endl;
     std::cout << "VELHA   - V: " << vitoriasVelha  << " D: " << derrotasVelha   << std::endl;
 }
+
+char Jogador::getPeca() const {
+    return (apelido[0] % 2 == 0) ? 'X' : 'O';
+}

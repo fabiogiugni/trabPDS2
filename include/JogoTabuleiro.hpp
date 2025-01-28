@@ -8,7 +8,7 @@
 #include <stdexcept> // Para exceções
 
 class JogoTabuleiro {
-private:
+protected:
     std::shared_ptr<Jogador> jogador1, jogador2;
     std::vector<std::vector<char>> tabuleiro;
     int dimensaoTabuleiro;
