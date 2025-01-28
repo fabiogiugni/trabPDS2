@@ -28,7 +28,7 @@ public:
     int getVitoriasVelha() const { return vitoriasVelha; }
     int getDerrotasReversi() const { return derrotasReversi; }
     int getDerrotasLig4() const { return derrotasLig4; }
-    int getDerrotasVelha() const { return derrotasVelha; }
+    int getDerrotasVelha() const { return derrotasVelha ; }
     //Printar Jogador
     void printaJogador() const;
     //Setters (no caso somente incrementam)
@@ -38,6 +38,7 @@ public:
     void incrementarDerrotaReversi();
     void incrementarDerrotaLig4();
     void incrementarDerrotaVelha();
+    char getPeca() const;
 };
 
 #endif

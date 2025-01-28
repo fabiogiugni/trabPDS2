@@ -5,10 +5,10 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <stdexcept> // Para exceções
+#include <stdexcept>
 
 class JogoTabuleiro {
-private:
+protected:
     std::shared_ptr<Jogador> jogador1, jogador2;
     std::vector<std::vector<char>> tabuleiro;
     int dimensaoTabuleiro;
