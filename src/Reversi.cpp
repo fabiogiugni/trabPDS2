@@ -63,11 +63,21 @@ bool Reversi::isVitoria() {
     return false;
 }
 
+bool Reversi::isEmpate() const {
+    // Verifica se ainda há espaços vazios no tabuleiro
+    for (const auto& linha : tabuleiro) {
+        for (char celula : linha) {
+            if (celula == ' ') {
+                return false; // Ainda há jogadas possíveis
+            }
+        }
+    }
+
 void Reversi::virarPecas(char linha, int coluna) {
     char pecaAtual = jogadorAtual ? 'X' : 'O';
     for (int dx = -1; dx <= 1; ++dx) {
         for (int dy = -1; dy <= 1; ++dy) {
-            if (dx != 0 || dy != 0 && verificaDirecao(linha - 'A', coluna - 1, dx, dy, pecaAtual)) {
+            if (dx != 0 || dy != 0 && verificaDirecao(linha - 'A', coluna - 1, dx, dy, pecaAtual)) { 
                 int x = linha - 'A' + dx;
                 int y = coluna - 1 + dy;
                 while (tabuleiro[x][y] != pecaAtual) {
