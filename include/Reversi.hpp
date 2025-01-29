@@ -13,6 +13,7 @@ public:
     void printaTabuleiro() const override;
 
     bool isVitoria() override;
+    bool isEmpate() const override;
 
 private:
     // Método para virar peças após uma jogada válida
