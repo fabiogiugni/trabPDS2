@@ -14,7 +14,7 @@ private:
     std::string arquivoDados;
 
 public:
-    GerenciaJogadores(const std::string& arquivo = "jogadores.txt");
+    GerenciaJogadores(const std::string& arquivo = "data/jogadores.txt");
     ~GerenciaJogadores();
 
     void cadastrarJogador(const std::string& nome, const std::string& apelido);

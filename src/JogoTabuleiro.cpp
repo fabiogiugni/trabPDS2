@@ -1,5 +1,9 @@
 #include "JogoTabuleiro.hpp"
 
+JogoTabuleiro::JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n)
+    : jogador1(jogador1), jogador2(jogador2), dimensaoTabuleiro(n), jogadorAtual(true) {
+    tabuleiro = std::vector<std::vector<char>>(n, std::vector<char>(n, '-'));
+}
 
 bool JogoTabuleiro::isJogadaValida(char linha, int coluna) {
     if (linha < 'A' || linha >= 'A' + dimensaoTabuleiro || coluna < 1 || coluna > dimensaoTabuleiro) {

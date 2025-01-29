@@ -15,7 +15,7 @@ protected:
     bool jogadorAtual; // true para jogador1, false para jogador2
 
 public:
-    JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n); // Construtor
+    JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n);
     virtual ~JogoTabuleiro() = default;
 
     // Leitura Jogada
@@ -28,7 +28,7 @@ public:
     virtual void printaTabuleiro() const;
 
     // Testa Condição de Vitória
-    virtual bool isVitoria();
+    virtual bool isVitoria() = 0;
 
     // Testa Condição de Empate
     virtual bool isEmpate() const = 0;

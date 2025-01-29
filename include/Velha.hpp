@@ -12,6 +12,7 @@ public:
     bool isJogadaValida(char linha, int coluna) override;
     void leJogada(char linha, int coluna) override;
     bool isVitoria() override;
+    bool isEmpate() const override;
 };
 
 #endif

@@ -33,7 +33,8 @@ void GerenciaJogadores::printarJogadores() const {
 }
 
 void GerenciaJogadores::salvarDados(const std::string& arquivo) const {
-    std::ofstream out(arquivo);
+    std::string caminhoCompleto = "data/" + arquivo;
+    std::ofstream out(caminhoCompleto);
     if (!out) {
         std::cerr << "ERRO: Não foi possível abrir o arquivo para escrita!" << std::endl;
         return;
