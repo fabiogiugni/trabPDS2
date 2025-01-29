@@ -18,7 +18,7 @@ void Velha::leJogada(char linha, int coluna) {
     if (isVitoria()) {
         std::cout << "Vitória do jogador " << (jogadorAtual ? "2" : "1") << "!" << std::endl;
         printaTabuleiro();
-        exit(0); // Termina o programa
+        return; // Termina o programa
     }
 }
 

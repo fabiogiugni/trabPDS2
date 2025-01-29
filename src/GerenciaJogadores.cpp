@@ -15,6 +15,7 @@ void GerenciaJogadores::cadastrarJogador(const std::string& nome, const std::str
         return;
     }
     jogadores[apelido] = std::make_shared<Jogador>(nome, apelido);
+    salvarDados("jogadores.txt");
 }
 
 void GerenciaJogadores::removerJogador(const std::string& apelido) {
