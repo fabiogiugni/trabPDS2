@@ -1,13 +1,5 @@
 #include "JogoTabuleiro.hpp"
 
-JogoTabuleiro::JogoTabuleiro(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n)
-    : jogador1(jogador1), jogador2(jogador2), dimensaoTabuleiro(n), jogadorAtual(true) {
-    if (n <= 0) {
-        throw DimensaoInvalidaException("A dimensão do tabuleiro deve ser maior que zero.");
-    }
-
-    tabuleiro = std::vector<std::vector<char>>(n, std::vector<char>(n, '-'));
-}
 
 bool JogoTabuleiro::isJogadaValida(char linha, int coluna) {
     if (linha < 'A' || linha >= 'A' + dimensaoTabuleiro || coluna < 1 || coluna > dimensaoTabuleiro) {
@@ -42,7 +34,3 @@ void JogoTabuleiro::printaTabuleiro() const {
     }
 }
 
-bool JogoTabuleiro::isVitoria() {
-    // Este método seria implementado de acordo com as regras do jogo específico.
-    return false;
-}
