@@ -2,9 +2,9 @@
 #include <iostream>
 
 Reversi::Reversi(std::shared_ptr<Jogador> jogador1, std::shared_ptr<Jogador> jogador2, int n)
-    : JogoTabuleiro(jogador1, jogador2, n) {
+    : JogoTabuleiro(jogador1, jogador2, 8) {
 
-    int meio = n / 2;
+    int meio = 8 / 2;
     tabuleiro[meio - 1][meio - 1] = 'O';
     tabuleiro[meio - 1][meio] = 'X';
     tabuleiro[meio][meio - 1] = 'X';
