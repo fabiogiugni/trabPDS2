@@ -17,6 +17,13 @@ void Velha::leJogada(char linha, int coluna) {
     // Verifica vitória após cada jogada
     if (isVitoria()) {
         std::cout << "Vitória do jogador " << (jogadorAtual ? "2" : "1") << "!" << std::endl;
+        if (jogadorAtual) {
+            jogador2->incrementarVitoriaVelha(); // Jogador 2 venceu
+            jogador1->incrementarDerrotaVelha(); // Jogador 1 perdeu
+        } else {
+            jogador1->incrementarVitoriaVelha(); // Jogador 1 venceu
+            jogador2->incrementarDerrotaVelha(); // Jogador 2 perdeu
+        }
         printaTabuleiro();
         return; // Termina o programa
     }
