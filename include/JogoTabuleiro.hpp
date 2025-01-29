@@ -31,7 +31,7 @@ public:
     virtual bool isVitoria();
 
     // Testa Condição de Empate
-    virtual bool isEmpate(); // Agora não é mais virtual pura.
+    virtual bool isEmpate() const = 0;
 
     // Exceções Específicas
     class JogadaInvalidaException : public std::runtime_error {
